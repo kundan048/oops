@@ -1,0 +1,84 @@
+/*C++ STL also has some containers(pre-build data structures) like vectors,
+  iterators, pairs etc. These are all generic class which can be used to 
+  represent collection of any datat type.
+*/
+
+//*****************ITERATORS********************//
+
+/*An iterator is any object that, points to some element in a range of elements
+  (such as an array or a container) and has the ability to iterate through those
+  elements using a set of operators (with at least the increment (++) and 
+  dereference (*) operators).
+  
+  A pointer is a form of an iterator. A pointer can point to elements in an array,
+  and can iterate over them using the increment operator(++). There can be other types
+  of iterators as well. For each container class, we can define iterator which 
+  can be used to iterate through all the elements of that container.
+*/
+
+
+// for VECTOR
+// vector <int> :: iterator it;
+
+//for 	LIST
+// list <int> :: iterator it;
+
+
+
+//*************************STRING**************************//
+
+/*C++ provides a powerful alternative for the char*. It is not a built-in data type,
+  but is a container class in the STL. String class provides diffferent string manipulation functions
+  like concatenation, find, replace etc. Let see
+*/
+
+#include<iostream>
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+	
+	string s0;
+		// s0 = ""
+		cout<<s0<<endl;
+	string s1("Hello");
+		// s1 = "Hello"
+		cout<<s1<<endl;
+	string s2(s1);
+		// s2 = "Hello"
+		cout<<s2<<endl;
+	string s3(s1,1,2);
+		// s3 = "el"
+		cout<<s3<<endl;
+	string s4("Hello World", 5);
+		// s4 = "Hello"
+		cout<<s4<<endl;
+	string s5(5,'*');
+		// s5 = "*****"
+		cout<<s5<<endl;
+	string s6(s1.begin(), s1.begin()+3);
+		// s6 = "Hel"
+		cout<<s6<<endl;
+		
+	string s, ss;
+	s = "HELLO";
+	ss = "HELLO";
+	if(s.compare(ss)==0)
+		cout<<s<<" is equal to "<<ss<<endl;
+	else
+		cout<<s<<" is equal to "<<ss<<endl;
+	
+	s.append(" WORLD!");
+	cout<<s<<endl;
+	printf("%s\n",s.c_str());
+	
+	if(s.compare(ss)==0)
+		cout<<s<<" is equal to "<<ss<<endl;
+	else
+		cout<<s<<" is equal to "<<ss<<endl;
+	
+		
+	
+	
+	return 0;
+}
