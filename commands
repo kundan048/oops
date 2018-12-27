@@ -1,0 +1,37 @@
+## run xampp
+screen -dmS xampp_screen sh && screen -S xampp_screen -X stuff "sudo /opt/lampp/manager-linux-x64.run\nPASSWORD\n";
+
+
+## stop apache2 ubuntu web server
+sudo /etc/init.d/apache2 stop
+
+
+## restart wifi
+sudo service network-manager restart
+
+## for resetting all wifi
+sudo systemctl restart network-manager
+
+## open file from gedit
+gedit filename.txt
+
+
+## install pip speechRecognition
+sudo apt-get install python-pyaudio python3-pyaudio
+
+## download whole website
+wget --convert-links -r http://www.yoursite.com
+
+##  to stop process on particular port
+sudo kill `sudo lsof -t -i:8080`
+
+## changing permission for copy and paste
+directrory$ sudo chmod 777 htdocs/
+
+## install .run file
+direcotry$ chmod +x nameoffile.run
+./nameoffile.run
+
+
+
+
