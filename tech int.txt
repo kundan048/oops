@@ -1,0 +1,419 @@
+1 ##
+	for ++ increment operator, operand must be variable
+		ex.. ++(a*b +1) gives an error
+			compile time error ( Lvalue error )
+		
+2 ##
+	printf("%x", -1<<4); -1 is stored in 2's compliment form
+	o/p  is fff0
+
+3 ##
+	#include <stdio.h>
+	int main() {
+		int a =5;
+		a = printf("Good") + printf("boy");
+		printf("%d", a);
+	}
+	
+	printf("Good") returns 4 and printf("boy") returns 3
+	hence a becomes 7
+	o/p - Goodboy7
+	
+	note ** return type of printf is int
+	
+4 ##
+	#include <stdio.h>
+	int main() {
+		char ch = 'A';
+		ch = ch +1;
+		printf("%c", ch);
+	}
+	
+	%c - format specifier
+	any character is stored in memory as its binary equivalent of ascii code
+	'A'  - 65
+	o/p	- B
+	
+5 ##
+	#include <stdio.h>
+	int main() {
+		float f = 3.14;
+		printf("%d", f%2);
+	}
+	
+	o/p - shows compile error
+	
+	%(modulo operator) ** both operand must be int
+
+5 ##
+	#include <stdio.h>
+	int main() {
+		int a, b, c;
+		a = b = 4;
+		c = a == b;
+		printf("%d", c);
+	}
+	
+	at a = b = 4; a becomes 4 and b becomes 4
+	at c = a == b; first a and b equality chech as a == b which is true ie 1
+	1 is assigned to c
+	
+	o/p - 1
+	
+6 ##
+	#include <stdio.h>
+	int main() {
+		int i = 10;
+		i = !i > 14;
+		printf("%d", i);
+	}
+	
+	for ! a non-zero value is treated as true and zero value is false
+	as i=10 and 10 is not zero means ! of non zero is zero
+	and 0 is not greater than 14 than i becomes false which is 0
+	
+	o/p - 0
+	
+7 ##
+	#include <stdio.h>
+	int main() {
+		int i;
+		i = 10 + 010 + 0x20;
+		printf("%d", i);
+	}
+
+	10 - decimal integer constant
+	010 - octal integer constant
+	0x20 - hexadecimal integer constant
+	
+	conversion of octal and hexa decimal into decimal i.c
+	for octal 
+	010 = 1 x 8^1 + 0 x 8^0
+	    = 8
+	    
+	for hexad
+	0x20 = 2 x 16^1 + 0 x 16^0
+		 = 32
+		 
+	o/p - 50
+
+8 ##
+	#include <stdio.h>
+	int main() {
+		int i;
+		static int j;
+		printf("%d \n",i);
+		printf("%d",j);
+	}
+	
+	int i  is automatic storage class 
+	automatic class bydefault value is garbage value
+	
+	static int i  defualt value is 0
+	
+	o/p - garbage value  0
+	
+9 ##
+	#include <stdio.h>
+	int main() {
+		int i=53;
+		printf(" a = %o", i);
+	}
+	
+	%o is format specifier for octal integer constant 
+	8|53
+	8|6 - 5
+	 |0 - 6
+	 
+	o/p - 65
+	
+10 ##
+	#include <stdio.h>
+	#define square(x) x*x
+	int main() {
+		int s = 5;
+		s = square(s+1);
+		printf(" s = %d", s);
+	}
+	
+	square(x) - macro name
+	x*x - macro body
+	
+	while preprocess ->
+	s = 5+1*5+1;
+	s = 11;
+	
+	o/p - 11
+	
+	
+11 ##
+	#include <stdio.h>
+	#include <limits.h>
+	int  main() {
+	   printf("%d", UINT_MAX);
+	}
+	
+	integer circle.....
+	
+	o/p - -1
+	
+12 ##
+	#include <stdio.h>
+	int  main() {
+		int a=5;
+		a = ++a+ ++a;
+	   printf("%d", a);
+	}
+	
+	in expression ++a+ ++a
+	first a becomes 6 and then becomes 7 then assigned to ++a and ++a 
+	finally a becomes 7 which assigns at place of ++a
+	
+	o/p - 14
+	
+13 ## 
+	#include <stdio.h>
+	int  main() {
+		int i = 2, j=2;
+		while(i+1 ? --i : --j)
+		{
+		    printf("%d", i);
+		}
+	}
+	
+	i+1 makes a constant value and does not assign to i
+	i = i+1 also assign to i
+	
+	while(i+1 ? --i : --j) here i+1 = 3 which true the --i executes
+	--i make i = 1 which is true while loop executes
+	
+	o/p - 1
+	
+14 ##
+	for pre post inrement operator
+	
+	** pre value post
+	
+15 ##
+	#include <stdio.h>
+	int  main() {
+		int a = 35, b=15, c=25, d,e;
+		d = a > c > b;
+		e = c-b > a <= d;
+		printf("%d, %d",d,e);
+	}
+	
+	arithmetic operation executes first then relational operation
+	relational operation executes from left to right
+	d = a > c > b;
+	  = 35 > 25 > 15;
+	  = 1 > 15
+	  = 0
+	  
+	relational operation returns 1 if true else 0
+	
+	o/p - 0, 1
+	
+16 ##
+	logical AND and OR operator
+	1. AND (all exp must be true for true value)
+	exp1 AND exp2
+	if exp1 is false it will not check remaining condition
+	2. OR (only one exp must be true for true value)
+	exp1 OR exp2
+	if exp1 is true it will not check remaining condition
+	
+17 ##
+	#include <stdio.h>
+	int  main() {
+		int x=5, y=0, a,b;
+		a = ++y || ++x;
+		b = --y && ++x;
+		printf("%d, %d, %d, %d", x, y, a, b);
+	}
+	
+	follow 16 numbers for answer
+	
+	o/p x = 5, y = 0, a= 1, b = 0
+	
+18 ##
+	#include <stdio.h>
+	int  main() {
+		int arr[5] = {10,20,30,40,50};
+		int* ptr;
+		ptr = arr;
+		printf("%u\n", *++ptr + 3);
+		printf("%u\n", *(ptr-- +2)+5);
+		printf("%u\n", *(ptr +3)-10);
+	}
+	
+	relational operator executes first then pointer operator executes
+	let arr is pointing to 1000
+	ptr is also pointing to 1000
+	exp1 ->
+	*++ptr + 3;
+	*1002 + 3;
+	20 + 3
+	23
+	
+	exp2 ->
+	*(ptr-- + 2) + 5;
+	*(1002 + 2) + 5;
+	*(1006) + 5;
+	40 + 5;
+	45
+	
+	ptr-- means ptr = 1000
+	
+	exp3 ->
+	*(ptr + 3)-10;
+	*(1000 + 3)-10;
+	*(1006) -10;
+	40-10;
+	30;
+	
+	o/p - 23, 45, 30
+	
+19 ##
+	#include <stdio.h>
+	int  main() {
+		int i =1;
+		while(i++<=12);
+		{
+		    printf("i: %d", i);
+		}
+	}
+	
+	val i 		    = 1,2,3,4,5,6,7,8,9,10,11,12,13,14
+	substitue val i =   1,2,3,4,5,6,7,8, 9,10,11,12, this 13 executes
+	to check 13 is less than of equal to 12 it makes value = 14
+	
+	o/p = 14
+	
+20 ##
+	#include <stdio.h>
+	int  main() {
+		int i=6;
+		for(--i; --i; i--)
+		{
+		    printf("%d , ",i);
+		}
+	}
+	
+	o/p - 4, 2
+	
+21 ##
+	#include <stdio.h>
+	union un
+	{
+		short int a;
+		char ch[2];
+	};
+	int main() {
+		union un u;
+		u.ch[0] = 2;
+		u.ch[1] = 3;
+		printf("a: %d\n", u.a);
+
+	}
+	
+	union shares common memory whereas structure have own memory
+	short occupies 2 bytes memory
+	char occupies 1 byte memory 
+	2 size means 2 * 1 byte = 2 bytes memory
+	
+	union shares 2 bytes memory among both data types
+	and both are pointing to same location
+	
+	ch[1] 						ch[0]
+	0 0 0 0 0 0 1 1			0 0 0 0 0 0 1 0
+	
+	a has combined ans of both ch
+	 = 512*1 + 256*1 + 2*1
+	 = 770
+	 
+	o/p - 770
+	
+22 ## 
+	#include <stdio.h>
+	int main() {
+		char* str = "nareshit";
+		printf("%c", *((str-- + 2)+1)-3);
+		printf("%c", *(--str+3)-32);
+		printf("%c", *(++str + 2)+4);
+	}
+
+	o/p - bAe
+	
+23 ##
+	pointer arithmetic
+	int increased by 2 bytes
+	char			 1 byte
+	double			 8 byte
+	
+	when subtract or add it gives location subtraction or addition
+	means in int case 2048-2046 = 2 bytes but 1 location diff
+	hence ans becomes 1
+	
+	#include <stdio.h>
+	int main() {
+		int i = 100;
+		int *ip1, *ip2;
+		ip1 = &i;
+		ip2 = ++ip1;
+		--ip1;
+		printf("%u", ip2-ip1);
+	}
+
+	o/p - 1
+	
+24 ##
+	storage classes in c
+	1. Auto (normal)
+	2. extern (external global to excess in different file)
+	3. static (memory does not freed after function execution)
+	4. register (store in register rather than RAM)
+	
+	#include <stdio.h>
+	void fun(void);
+	int main() {
+		fun();
+		fun();
+		fun();
+	}
+	void fun(void)
+	{
+		static int a = 5;
+		printf("a: %d\n", a+=2);
+	}
+	
+	o/p - a : 7
+		  a : 9
+		  a : 11
+
+25 ##
+	#include <stdio.h>
+	int main() {
+		int a = 5;
+		a = a+++a;
+		printf("a: %d\n",a);
+	}
+	
+	precedence of operator
+	modify operator having highest priority than arithmetic operator
+	a = a++ + a;
+	
+	o/p - 11
+	
+26 ##
+	** function arguments passed evaluates from right to left
+	
+
+ 
+
+	
+	
+	
+
+	
+	
